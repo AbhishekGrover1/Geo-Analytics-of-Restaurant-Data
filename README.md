@@ -1,4 +1,4 @@
-# Task-3 · Geo Analytics of Restaurant Data
+# Task-3 · Geospatial Analytics of Restaurant Data
 
 <p>
   <img src="https://img.shields.io/badge/Type-Geospatial%20Analytics-4A90D9?style=flat-square" />
@@ -6,6 +6,27 @@
   <img src="https://img.shields.io/badge/Valid%20GPS%20Points-9%2C052-2ECC71?style=flat-square" />
   <img src="https://img.shields.io/badge/Cities%20Analysed-141-lightgrey?style=flat-square" />
 </p>
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Problem Statement](#problem-statement)
+- [Objective](#objective)
+- [Technologies Used](#technologies-used)
+- [Python Libraries](#python-libraries)
+- [Dataset Information](#dataset-information)
+- [Project Workflow](#project-workflow)
+- [Analytical Techniques Applied](#analytical-techniques-applied)
+- [Results](#results)
+- [Visualizations](#visualizations)
+- [Business Insights](#business-insights)
+- [Folder Structure](#folder-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Future Improvements](#future-improvements)
+- [Author](#author)
 
 ---
 
@@ -17,13 +38,13 @@ A comprehensive geospatial analysis of the Cognifyz restaurant dataset using coo
 
 ## Problem Statement
 
-Understanding where restaurants concentrate, which cities outperform on quality, which cuisines dominate by region, and how pricing varies geographically are essential inputs for platform expansion strategy, market entry decisions, and competitive positioning analysis on restaurant aggregators.
+Restaurant aggregation platforms depend on clear visibility into where restaurants concentrate, which cities outperform on quality, which cuisines dominate by region, and how pricing varies geographically. These questions are essential inputs for platform expansion strategy, market entry decisions, and competitive positioning analysis.
 
 ---
 
 ## Objective
 
-Produce a structured suite of eight geospatial and city-level visualizations that expose distribution patterns, concentration hotspots, cuisine composition trends, price tier variation, and the relationship between online delivery availability and average restaurant rating — synthesized into business-ready insights.
+Produce a structured suite of eight geospatial and city-level visualizations that expose distribution patterns, concentration hotspots, cuisine composition trends, price-tier variation, and the relationship between online delivery availability and average restaurant rating — synthesized into business-ready insights.
 
 ---
 
@@ -65,41 +86,15 @@ jupyter>=1.0.0
 
 ## Project Workflow
 
-```
-Raw Dataset  ·  9,551 rows
-        │
-        ▼
- 01  Load dataset
-     Inspect geographic columns  :  latitude · longitude · city · locality
-        │
-        ▼
- 02  Coordinate validation
-     Filter rows where  lat = 0  and  lon = 0
-     (Gulf of Guinea placeholder values  →  not real locations)
-     Valid GPS records  :  9,052
-        │
-        ▼
- 03  Geographic distribution analysis
-     ├─ Global scatter map — colour-coded by aggregate rating
-     └─ 2D hexbin density heatmap — concentration hotspots
-        │
-        ▼
- 04  City-level analysis
-     ├─ Top 20 cities by restaurant count
-     ├─ Top 20 cities by average rating  (minimum 30 restaurants per city)
-     └─ Price range distribution across top 10 cities
-        │
-        ▼
- 05  Cuisine landscape analysis
-     ├─ Cuisine popularity across top 10 cities  (stacked bar)
-     └─ Overall cuisine share  (pie chart · full dataset)
-        │
-        ▼
- 06  Service and rating correlation
-     Average rating — delivery-enabled vs non-delivery restaurants per city
-        │
-        ▼
- 07  Business insights synthesis
+```mermaid
+flowchart TD
+    Start(["Raw Dataset · 9,551 rows"]) --> S1["01 Load dataset<br/>Inspect geographic columns : latitude · longitude · city · locality"]
+    S1 --> S2["02 Coordinate validation<br/>Filter rows where lat = 0 and lon = 0<br/>(Gulf of Guinea placeholder values → not real locations)<br/>Valid GPS records : 9,052"]
+    S2 --> S3["03 Geographic distribution analysis<br/>• Global scatter map — colour-coded by aggregate rating<br/>• 2D hexbin density heatmap — concentration hotspots"]
+    S3 --> S4["04 City-level analysis<br/>• Top 20 cities by restaurant count<br/>• Top 20 cities by average rating (minimum 30 restaurants per city)<br/>• Price range distribution across top 10 cities"]
+    S4 --> S5["05 Cuisine landscape analysis<br/>• Cuisine popularity across top 10 cities (stacked bar)<br/>• Overall cuisine share (pie chart · full dataset)"]
+    S5 --> S6["06 Service and rating correlation<br/>Average rating — delivery-enabled vs non-delivery restaurants per city"]
+    S6 --> S7(["07 Business insights synthesis"])
 ```
 
 ---
@@ -117,6 +112,8 @@ This task focuses on **Exploratory Data Analysis (EDA)** and **Geospatial Visual
 ---
 
 ## Results
+
+The analysis surfaces distinct patterns across geography, city performance, pricing, cuisine, and service adoption.
 
 ### Geographic Distribution
 
